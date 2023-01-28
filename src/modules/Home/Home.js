@@ -113,6 +113,7 @@ const Home = () => {
     <Page>
       <Toolbar />
       <Table columns={columns} data={data} />
+      <Button primary>1321321</Button>
       <Button>1321321</Button>
     </Page>
   )
