@@ -1,35 +1,38 @@
 import styled from 'styled-components'
+import { defaultTheme } from '../../../styles/theme'
 
 export const DropDownContainer = styled('div')`
-  width: 10.5em;
-  margin: 0 auto;
+  position: relative;
 `
 export const DropDownHeader = styled('div')`
-  margin-bottom: 0.8em;
-  padding: 0.4em 2em 0.4em 1em;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-  font-weight: 500;
-  font-size: 1.3rem;
-  color: #3faffa;
-  background: #ffffff;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid ${defaultTheme.colors.grey};
+  height: 30px;
 `
-export const DropDownListContainer = styled('div')``
+export const DropDownListContainer = styled('div')`
+  position: absolute;
+  top: 34px;
+  right: 0;
+  min-width: 122px;
+  padding: 8px 16px;
+  background: ${defaultTheme.colors.white};
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+`
 export const DropDownList = styled('ul')`
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin: 0;
-  padding-left: 1em;
-  background: #ffffff;
-  border: 2px solid #e5e5e5;
-  box-sizing: border-box;
-  color: #3faffa;
-  font-size: 1.3rem;
-  font-weight: 500;
-
-  &:first-child {
-    padding-top: 0.8em;
-  }
+  padding: 0;
 `
 export const ListItem = styled('li')`
   list-style: none;
-  margin-bottom: 0.8em;
+  cursor: pointer;
+  user-select: none;
 `

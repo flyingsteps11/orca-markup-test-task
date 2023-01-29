@@ -10,8 +10,8 @@ import {
 } from '../../components/ui-kit/IconWrapper/IconWrapper.style'
 import Copyip from '../../components/ui-kit/CopyIp/Copyip'
 import SourceLink from '../../components/ui-kit/SourceLink/SourceLink'
-import Button from '../../components/ui-kit/Button/Button'
-import Modal from '../../components/ui-kit/Modal/Modal'
+import { data } from './data'
+import Grid from '../../components/ui-kit/Grid/Grid'
 
 const Home = () => {
   const columns = React.useMemo(
@@ -19,6 +19,12 @@ const Home = () => {
       {
         Header: '',
         accessor: 'icon',
+        colOption: {
+          minWidth: 50,
+          maxWidth: 50,
+          width: 50,
+        },
+        id: 'expander',
         Cell: ({ value }) => (
           <>
             {value === 0 && (
@@ -42,10 +48,20 @@ const Home = () => {
       {
         Header: 'Name',
         accessor: 'name',
+        colOption: {
+          minWidth: 154,
+          maxWidth: 154,
+          width: 154,
+        },
       },
       {
         Header: 'File name',
         accessor: 'fileName',
+        colOption: {
+          minWidth: 217,
+          maxWidth: 217,
+          width: 217,
+        },
         Cell: ({ value, row }) => (
           <span>
             {value} ({row.original.fileSize})
@@ -55,66 +71,42 @@ const Home = () => {
       {
         Header: 'IP Address v4',
         accessor: 'ipV4',
+        colOption: {
+          minWidth: 208,
+          maxWidth: 208,
+          width: 208,
+        },
         Cell: ({ row }) => <Copyip children={row.original.ipV4} />,
       },
       {
         Header: 'IP Address v6',
         accessor: 'ipV6',
+        colOption: {
+          minWidth: 240,
+          maxWidth: 240,
+          width: 240,
+        },
         Cell: ({ row }) => <Copyip children={row.original.ipV6} />,
       },
       {
         Header: 'Scan source',
         accessor: 'scanSource',
+        colOption: {
+          minWidth: 317,
+          maxWidth: 317,
+          width: 317,
+        },
         Cell: ({ row }) => <SourceLink children={row.original.scanSource} />,
       },
     ],
     [],
   )
 
-  const data = [
-    {
-      icon: 0,
-      name: 'Luctus',
-      fileName: 'Luctus.ppt',
-      fileSize: '2Mb',
-      ipV4: '38.21.46.43/5',
-      ipV6: '2855:93c2:2469:6cde:643b:e139:6aae:6e00',
-      scanSource: 'https://dropbox.com/nulla/dapibus.xml',
-    },
-    {
-      icon: 1,
-      name: 'Ante',
-      fileName: 'Ante.tiff',
-      fileSize: '10Mb',
-      ipV4: '75.128.66.66/28',
-      ipV6: 'efcd:8153:a72c:7e0e:4200:896d:74d:bac1',
-      scanSource: 'https://ow.ly/curae.aspx',
-    },
-    {
-      icon: 1,
-      name: 'ElitProinInterdum',
-      fileName: 'ElitProinInterdum.xls',
-      fileSize: '3Mb',
-      ipV4: '204.200.5.2/1',
-      ipV6: 'a454:1732:7eeb:b137:a1d:9d52:813b:506e',
-      scanSource: 'http://google.com/sit.aspx',
-    },
-    {
-      icon: 2,
-      name: 'Non',
-      fileName: 'Non.ppt',
-      fileSize: '536Kb',
-      ipV4: '127.234.110.193/28',
-      ipV6: 'efcd:8153:a72c:7e0e:4200:896d:74d:bac1',
-      scanSource: 'http://hex.com/pede.json',
-    },
-  ]
   return (
     <Page>
       <Toolbar />
       <Table columns={columns} data={data} />
-      <Button primary>1321321</Button>
-      <Button>1321321</Button>
+      <Grid data={data} />
     </Page>
   )
 }

@@ -8,6 +8,7 @@ const borderElements = css`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 `
 
 export const BorderRed = styled.div`

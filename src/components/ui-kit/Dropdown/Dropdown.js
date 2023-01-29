@@ -6,23 +6,23 @@ import {
   DropDownListContainer,
   ListItem,
 } from 'components/ui-kit/Dropdown/Dropdown.styles'
+import { IconArrow } from '../../../assets/icons'
 
 const Dropdown = ({ Icon, options, label }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(null)
   const toggling = () => setIsOpen(!isOpen)
-
   const onOptionClicked = value => () => {
     setSelectedOption(value)
     setIsOpen(false)
-    console.log(selectedOption)
   }
 
   return (
     <DropDownContainer>
       <DropDownHeader onClick={toggling}>
         <Icon />
-        {selectedOption || label}
+        <span>{selectedOption || label}</span>
+        <IconArrow />
       </DropDownHeader>
       {isOpen && (
         <DropDownListContainer>

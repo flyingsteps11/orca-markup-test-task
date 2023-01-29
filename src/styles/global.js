@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   ${fontFaces}
   html {
     font-size: ${defaultTheme.sizes.fontSize};
+    line-height: ${defaultTheme.sizes.lineHeight};
   }
 
   body {
@@ -45,7 +46,7 @@ export const GlobalStyles = createGlobalStyle`
   *:before {
     box-sizing: border-box;
   }
-
+  
   [class^="icon-"], [class*=" icon-"] {
     display: inline-block;
     vertical-align: middle;

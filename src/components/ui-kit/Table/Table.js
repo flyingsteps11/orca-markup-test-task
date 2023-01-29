@@ -1,37 +1,72 @@
 import React from 'react'
 
-import { useTable } from 'react-table'
-import { StyledTable } from './Table.styles'
+import { useTable, useExpanded } from 'react-table'
+import {
+  StyledTable,
+  TableBody,
+  TableBodyTr,
+  TableBodyTd,
+  TableHeader,
+  TableHeaderTh,
+  TableHeaderTr,
+  OverflowTable,
+} from './Table.styles'
 
 function Table({ columns, data }) {
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data,
-  })
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, visibleColumns } =
+    useTable(
+      {
+        columns,
+        data,
+      },
+      useExpanded,
+    )
+
   return (
-    <StyledTable {...getTableProps()}>
-      <thead>
-        {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row, i) => {
-          prepareRow(row)
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map(cell => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-              })}
-            </tr>
-          )
-        })}
-      </tbody>
-    </StyledTable>
+    <OverflowTable>
+      <StyledTable {...getTableProps()}>
+        <TableHeader>
+          {headerGroups.map(headerGroup => (
+            <TableHeaderTr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                <TableHeaderTh colOption={column.colOption} {...column.getHeaderProps()}>
+                  {column.render('Header')}
+                </TableHeaderTh>
+              ))}
+            </TableHeaderTr>
+          ))}
+        </TableHeader>
+        <TableBody {...getTableBodyProps()}>
+          {rows.map(row => {
+            prepareRow(row)
+            return (
+              <React.Fragment {...row.getRowProps()}>
+                <TableBodyTr {...row.getToggleRowExpandedProps()}>
+                  {row.cells.map(cell => {
+                    return (
+                      <TableBodyTd colOption={cell.column.colOption} {...cell.getCellProps()}>
+                        {cell.render('Cell')}
+                      </TableBodyTd>
+                    )
+                  })}
+                </TableBodyTr>
+                {/*
+                    If the row is in an expanded state, render a row with a
+                    column that fills the entire length of the table.
+                  */}
+                {row.isExpanded ? (
+                  <TableBodyTr>
+                    <TableBodyTd colSpan={visibleColumns.length}>
+                      <span>{row.original.additionalInfo}</span>
+                    </TableBodyTd>
+                  </TableBodyTr>
+                ) : null}
+              </React.Fragment>
+            )
+          })}
+        </TableBody>
+      </StyledTable>
+    </OverflowTable>
   )
 }
 
