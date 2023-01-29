@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { defaultTheme } from '../../../styles/theme'
+import { BorderOrange, BorderRed, BorderYellow } from '../IconWrapper/IconWrapper.style'
 
 export const StyledTable = styled.table`
   width: 100%;
@@ -25,6 +26,28 @@ export const TableBodyTr = styled.tr`
   background: ${defaultTheme.colors.white};
   border: inset 1px solid ${defaultTheme.colors.grey};
   border-radius: ${defaultTheme.sizes.borderRadius};
+
+  &:hover {
+    transition: 0.25s;
+    background: ${defaultTheme.colors.dark};
+    color: ${defaultTheme.colors.white};
+
+    ${BorderOrange} {
+      border: 1px solid ${defaultTheme.colors.white};
+    }
+
+    ${BorderYellow} {
+      border: 1px solid ${defaultTheme.colors.white};
+    }
+
+    ${BorderRed} {
+      border: 1px solid ${defaultTheme.colors.white};
+    }
+
+    svg {
+      --icon-color: ${defaultTheme.colors.white};
+    }
+  }
 
   &:last-child {
     margin-bottom: 0;

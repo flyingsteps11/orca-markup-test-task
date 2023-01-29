@@ -16,4 +16,13 @@ export const Container = styled.div`
     max-width: 164px;
     text-overflow: ellipsis;
   }
+
+  svg {
+    cursor: pointer;
+    transition: 0.25s all;
+
+    &:hover {
+      --icon-color: ${defaultTheme.colors.blue};
+    }
+  }
 `
