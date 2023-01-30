@@ -6,7 +6,7 @@ export const Link = styled.a`
   color: inherit;
 `
 
-export const Wrapper = styled.div`
+export const SourceLinkWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;

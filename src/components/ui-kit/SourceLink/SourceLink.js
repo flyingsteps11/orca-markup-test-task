@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, Wrapper } from './SourceLink.styles'
+import { Link, SourceLinkWrapper } from './SourceLink.styles'
 import { IconLink, IconScan } from '../../../assets/icons'
 
 const SourceLink = ({ children }) => (
-  <Wrapper>
+  <SourceLinkWrapper>
     <IconScan />
     <Link href="#">{children}</Link>
     <IconLink />
-  </Wrapper>
+  </SourceLinkWrapper>
 )
 
 SourceLink.propTypes = {

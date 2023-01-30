@@ -23,10 +23,6 @@ export const GlobalStyles = createGlobalStyle`
   #root {
     min-height: 100vh;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
   }
 
   input, textarea {
@@ -46,8 +42,8 @@ export const GlobalStyles = createGlobalStyle`
   *:before {
     box-sizing: border-box;
   }
-  
-  [class^="icon-"], [class*=" icon-"] {
+
+  svg {
     display: inline-block;
     vertical-align: middle;
   }

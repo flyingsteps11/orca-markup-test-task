@@ -1,12 +1,13 @@
 import React from 'react'
 import Card from '../Card/Card'
+import { GridContainer } from './Grid.styles'
 
 const Grid = ({ data }) => (
-  <div>
+  <GridContainer>
     {data.map(item => (
       <Card item={item} />
     ))}
-  </div>
+  </GridContainer>
 )
 
 export default Grid
