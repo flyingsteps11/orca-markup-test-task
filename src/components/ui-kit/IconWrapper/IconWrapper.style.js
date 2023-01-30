@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { defaultTheme } from '../../../styles/theme'
 
-export const borderElements = css`
+const borderElements = css`
   border-radius: ${defaultTheme.sizes.borderRadius};
   width: 24px;
   height: 24px;
@@ -38,4 +38,32 @@ export const BorderGrey = styled.div`
     width: 8px;
     height: 8px;
   }
+`
+const BackgroundIcon = css`
+  border-radius: ${defaultTheme.sizes.borderRadius};
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    --icon-color: ${defaultTheme.colors.white};
+  }
+`
+export const BackgroundRed = styled.div`
+  background: ${defaultTheme.colors.red};
+  ${BackgroundIcon}
+`
+export const BackgroundOrange = styled.div`
+  background: ${defaultTheme.colors.orange};
+  ${BackgroundIcon}
+`
+export const BackgroundYellow = styled.div`
+  background: ${defaultTheme.colors.yellow};
+  ${BackgroundIcon}
 `

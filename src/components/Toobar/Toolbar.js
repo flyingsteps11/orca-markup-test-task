@@ -1,5 +1,5 @@
 import React from 'react'
-import { ToolbarMain, Wrapper } from './Toolbar.styles'
+import { ToolbarMain, ToolbarWrapper } from './Toolbar.styles'
 import { IconGroup, IconLogo, IconSort } from '../../assets/icons'
 import Checkbox from '../ui-kit/Checkbox/Checkbox'
 import Dropdown from '../ui-kit/Dropdown/Dropdown'
@@ -17,12 +17,12 @@ const Toolbar = ({ isTableVisible, setTableVisible }) => {
       <a href="#">
         <IconLogo />
       </a>
-      <Wrapper>
+      <ToolbarWrapper>
         <Checkbox label="I accept" value={checked} onChange={handleChange} />
         <Dropdown options={testOptions} label="Group by" Icon={IconGroup} />
         <Dropdown options={testOptions} label="Sort by" Icon={IconSort} />
         <ToggleSwitch isTableVisible={isTableVisible} setTableVisible={setTableVisible} />
-      </Wrapper>
+      </ToolbarWrapper>
     </ToolbarMain>
   )
 }

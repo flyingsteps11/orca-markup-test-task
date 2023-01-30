@@ -1,7 +1,6 @@
 import ReactModal from 'react-modal'
 import styled, { css } from 'styled-components'
 import { defaultTheme } from '../../../styles/theme'
-import { BorderOrange, BorderRed, BorderYellow } from '../IconWrapper/IconWrapper.style'
 import { IconClose } from '../../../assets/icons'
 import { Wrapper } from '../Button/Button.styles'
 
@@ -9,44 +8,44 @@ export const OverlayStyles = {
   background: defaultTheme.colors.bgModal,
 }
 export const StyledModal = styled(ReactModal)`
-  border-radius: ${defaultTheme.sizes.borderRadius};
-  background: ${defaultTheme.colors.white};
-  max-width: 900px;
-`
-export const LargeBorderElements = css`
-  width: 32px;
-  height: 32px;
-  margin: 0;
-
-  svg {
-    width: 16px;
-    height: 16px;
+  max-width: 932px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  padding: 16px;
+  @media screen and (max-height: 600px) {
+    height: 410px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    transform: none;
   }
 `
+export const ModalContainer = styled.div`
+  border-radius: ${defaultTheme.sizes.borderRadius};
+  background: ${defaultTheme.colors.white};
+`
+
 export const ModalHeader = styled.div`
   padding: 24px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid ${defaultTheme.colors.grey};
   position: relative;
-
-  ${BorderRed} {
-    ${LargeBorderElements}
-  }
-
-  ${BorderYellow} {
-    ${LargeBorderElements}
-  }
-
-  ${BorderOrange} {
-    ${LargeBorderElements}
-  }
 `
 export const ModalBody = styled.div`
-  padding: 24px 24px 16px;
+  padding: 24px 24px 0;
+  overflow: auto;
+  max-height: 320px;
+  @media screen and (max-height: 600px) {
+    max-height: 226px;
+  }
 `
 export const ModalFooter = styled.div`
-  padding: 0 24px 24px;
+  padding: 16px 24px 24px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -63,7 +62,7 @@ export const ModalTitle = styled.h2`
 `
 export const ModalSubTitle = styled.h3`
   color: ${defaultTheme.colors.darkGrey};
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   font-weight: normal;
 `
 export const ModalText = styled.p`
@@ -72,7 +71,7 @@ export const ModalText = styled.p`
 
 export const StyledIconClose = styled(IconClose)`
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 33px;
+  right: 24px;
   cursor: pointer;
 `

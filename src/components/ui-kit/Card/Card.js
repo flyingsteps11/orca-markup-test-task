@@ -21,9 +21,13 @@ const Card = ({ item }) => {
   const [isModalVisible, setModalVisible] = useState(false)
   const openModal = () => {
     setModalVisible(true)
+    if (typeof window != 'undefined' && window.document) {
+      document.body.style.overflowY = 'hidden'
+    }
   }
   const closeModal = () => {
     setModalVisible(false)
+    document.body.style.overflowY = 'auto'
   }
 
   return (

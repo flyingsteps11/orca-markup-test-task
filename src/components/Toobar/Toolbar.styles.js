@@ -8,8 +8,9 @@ export const ToolbarMain = styled.div`
   width: ${defaultTheme.sizes.full};
   padding-bottom: 16px;
   border-bottom: 1px solid ${defaultTheme.colors.grey};
+  margin-bottom: 32px;
 `
-export const Wrapper = styled.div`
+export const ToolbarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
