@@ -9,4 +9,6 @@ export const colors = {
   darkGrey: '#70707B',
   white: '#FFFFFF',
   black: '#000000',
+  bgModal: 'rgba(16, 17, 29, 0.3)',
+  hoverBlue: '#3265b9',
 }

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { defaultTheme } from '../../../styles/theme'
 
-const borderElements = css`
+export const borderElements = css`
   border-radius: ${defaultTheme.sizes.borderRadius};
   width: 24px;
   height: 24px;

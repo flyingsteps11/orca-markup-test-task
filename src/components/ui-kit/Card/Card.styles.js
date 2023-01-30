@@ -10,6 +10,8 @@ export const CardBlock = styled.div`
   border-radius: ${defaultTheme.sizes.borderRadius};
   border: 1px solid ${defaultTheme.colors.grey};
   padding: 16px;
+  display: flex;
+  flex-direction: column;
 
   ${media.lg} {
     padding: 20px 30px 24px;
@@ -101,4 +103,9 @@ export const CardBlockWrapper = styled.div`
       }
     }
   }
+`
+export const ButtonWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
 `

@@ -1,11 +1,49 @@
 import React from 'react'
-import ReactModal from 'react-modal'
 import Button from '../Button/Button'
-import { OverlayStyles, StyledModal } from './Modal.styles'
+import {
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+  ModalSubTitle,
+  ModalText,
+  ModalTitle,
+  OverlayStyles,
+  StyledIconClose,
+  StyledModal,
+} from './Modal.styles'
+
+import { BorderOrange, BorderRed, BorderYellow } from '../IconWrapper/IconWrapper.style'
+import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../../assets/icons'
 
 const Modal = ({ isOpen = false, onClose, item }) => (
   <StyledModal style={{ overlay: OverlayStyles }} isOpen={isOpen}>
-    <Button onClick={onClose}>{item.name}</Button>
+    <ModalHeader>
+      {item.icon === 0 && (
+        <BorderRed>
+          <IconWarningRed />
+        </BorderRed>
+      )}
+      {item.icon === 1 && (
+        <BorderOrange>
+          <IconWarningOrange />
+        </BorderOrange>
+      )}
+      {item.icon === 2 && (
+        <BorderYellow>
+          <IconWarningYellow />
+        </BorderYellow>
+      )}
+      <ModalTitle>{item.name}</ModalTitle>
+      <StyledIconClose onClick={onClose} />
+    </ModalHeader>
+    <ModalBody>
+      <ModalSubTitle>Additional info</ModalSubTitle>
+      <ModalText>{item.additionalInfo}</ModalText>
+    </ModalBody>
+    <ModalFooter>
+      <Button primary>Download</Button>
+      <Button onClick={onClose}>Cancel</Button>
+    </ModalFooter>
   </StyledModal>
 )
 export default Modal

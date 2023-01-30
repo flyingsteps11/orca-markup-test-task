@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {
+  ButtonWrapper,
   CardBlock,
   CardBlockItem,
   CardBlockWrapper,
@@ -83,12 +84,13 @@ const Card = ({ item }) => {
               <Label>Scan source:</Label>
               <SourceLink children={item.scanSource} />
             </CardBlockItem>
-            <></>
           </CardBlockWrapper>
         </CardContainer>
-        <Button primary onClick={openModal}>
-          Show additional info
-        </Button>
+        <ButtonWrapper>
+          <Button primary onClick={openModal}>
+            Show additional info
+          </Button>
+        </ButtonWrapper>
       </CardBlock>
       {isModalVisible && <Modal item={item} onClose={closeModal} isOpen={isModalVisible}></Modal>}
     </>
