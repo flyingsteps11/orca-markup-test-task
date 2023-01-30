@@ -3,7 +3,7 @@ import { defaultTheme } from '../../../styles/theme'
 import { BorderOrange, BorderRed, BorderYellow } from '../IconWrapper/IconWrapper.style'
 
 export const StyledTable = styled.table`
-  width: 100%;
+  width: ${defaultTheme.sizes.full};
   border-collapse: separate;
   border-spacing: 0 8px;
 `
@@ -87,4 +87,5 @@ export const TableBodyTd = styled.td`
 `
 export const OverflowTable = styled.div`
   overflow-x: auto;
+  width: ${defaultTheme.sizes.full};
 `

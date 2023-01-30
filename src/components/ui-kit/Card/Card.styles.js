@@ -12,11 +12,11 @@ export const CardBlock = styled.div`
   padding: 16px;
 
   ${media.lg} {
-    padding: 20px 32px 24px;
+    padding: 20px 30px 24px;
   }
 
   ${Wrapper} {
-    width: 100%;
+    width: ${defaultTheme.sizes.full};
     margin-left: auto;
     margin-top: 24px;
 
@@ -58,9 +58,6 @@ export const CardContainer = styled.div`
   display: grid;
   grid-column-gap: 32px;
   grid-row-gap: 16px;
-
-  ${media.md} {
-  }
 
   ${media.lg} {
     grid-template-columns: 200px 1fr;

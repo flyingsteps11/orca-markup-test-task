@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   CardBlock,
   CardBlockItem,
@@ -14,69 +14,85 @@ import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../../a
 import Copyip from '../CopyIp/Copyip'
 import Button from '../Button/Button'
 import SourceLink from '../SourceLink/SourceLink'
+import Modal from '../Modal/Modal'
 
-const Card = ({ item }) => (
-  <CardBlock>
-    <CardContainer>
-      <CardBlockWrapper>
-        <CardBlockItem>
-          <Label>Risk level:</Label>
-          {item.icon === 0 && (
-            <CardTextWrapper>
-              <BorderGrey>
-                <IconWarningRed />
-              </BorderGrey>
-              <Text>High</Text>
-            </CardTextWrapper>
-          )}
+const Card = ({ item }) => {
+  const [isModalVisible, setModalVisible] = useState(false)
+  const openModal = () => {
+    setModalVisible(true)
+  }
+  const closeModal = () => {
+    setModalVisible(false)
+  }
 
-          {item.icon === 1 && (
-            <CardTextWrapper>
-              <BorderGrey>
-                <IconWarningOrange />
-              </BorderGrey>
-              <Text>Medium</Text>
-            </CardTextWrapper>
-          )}
-          {item.icon === 2 && (
-            <CardTextWrapper>
-              <BorderGrey>
-                <IconWarningYellow />
-              </BorderGrey>
-              <Text>Low</Text>
-            </CardTextWrapper>
-          )}
-        </CardBlockItem>
-        <CardBlockItem>
-          <Label>Name:</Label>
-          <Text>{item.name}</Text>
-        </CardBlockItem>
-        <CardBlockItem>
-          <Label>File name:</Label>
-          <CardTextWrapper>
-            <Text>{item.fileName}</Text>
-            <TextGrey>({item.fileSize})</TextGrey>
-          </CardTextWrapper>
-        </CardBlockItem>
-      </CardBlockWrapper>
-      <CardBlockWrapper>
-        <CardBlockItem>
-          <Label>IP Address v4:</Label>
-          <Copyip children={item.ipV4} />
-        </CardBlockItem>
-        <CardBlockItem>
-          <Label>IP Address v6:</Label>
-          <Copyip children={item.ipV6} />
-        </CardBlockItem>
-        <CardBlockItem>
-          <Label>Scan source:</Label>
-          <SourceLink children={item.scanSource} />
-        </CardBlockItem>
-        <></>
-      </CardBlockWrapper>
-    </CardContainer>
-    <Button primary>Show additional info</Button>
-  </CardBlock>
-)
+  return (
+    <>
+      <CardBlock>
+        <CardContainer>
+          <CardBlockWrapper>
+            <CardBlockItem>
+              <Label>Risk level:</Label>
+              {item.icon === 0 && (
+                <CardTextWrapper>
+                  <BorderGrey>
+                    <IconWarningRed />
+                  </BorderGrey>
+                  <Text>High</Text>
+                </CardTextWrapper>
+              )}
+
+              {item.icon === 1 && (
+                <CardTextWrapper>
+                  <BorderGrey>
+                    <IconWarningOrange />
+                  </BorderGrey>
+                  <Text>Medium</Text>
+                </CardTextWrapper>
+              )}
+              {item.icon === 2 && (
+                <CardTextWrapper>
+                  <BorderGrey>
+                    <IconWarningYellow />
+                  </BorderGrey>
+                  <Text>Low</Text>
+                </CardTextWrapper>
+              )}
+            </CardBlockItem>
+            <CardBlockItem>
+              <Label>Name:</Label>
+              <Text>{item.name}</Text>
+            </CardBlockItem>
+            <CardBlockItem>
+              <Label>File name:</Label>
+              <CardTextWrapper>
+                <Text>{item.fileName}</Text>
+                <TextGrey>({item.fileSize})</TextGrey>
+              </CardTextWrapper>
+            </CardBlockItem>
+          </CardBlockWrapper>
+          <CardBlockWrapper>
+            <CardBlockItem>
+              <Label>IP Address v4:</Label>
+              <Copyip children={item.ipV4} />
+            </CardBlockItem>
+            <CardBlockItem>
+              <Label>IP Address v6:</Label>
+              <Copyip children={item.ipV6} />
+            </CardBlockItem>
+            <CardBlockItem>
+              <Label>Scan source:</Label>
+              <SourceLink children={item.scanSource} />
+            </CardBlockItem>
+            <></>
+          </CardBlockWrapper>
+        </CardContainer>
+        <Button primary onClick={openModal}>
+          Show additional info
+        </Button>
+      </CardBlock>
+      {isModalVisible && <Modal item={item} onClose={closeModal} isOpen={isModalVisible}></Modal>}
+    </>
+  )
+}
 
 export default Card

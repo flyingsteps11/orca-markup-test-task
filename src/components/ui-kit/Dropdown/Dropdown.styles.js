@@ -13,6 +13,16 @@ export const DropDownHeader = styled('div')`
   user-select: none;
   border: 1px solid ${defaultTheme.colors.grey};
   height: 30px;
+  border-radius: ${defaultTheme.sizes.borderRadius};
+
+  &:hover {
+    transition: 0.25s all;
+    border: 1px solid ${defaultTheme.colors.blue};
+
+    svg {
+      --icon-color: ${defaultTheme.colors.blue};
+    }
+  }
 `
 export const DropDownListContainer = styled('div')`
   position: absolute;

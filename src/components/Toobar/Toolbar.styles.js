@@ -5,7 +5,7 @@ export const ToolbarMain = styled.div`
   display: grid;
   grid-template-columns: 94px 1fr;
   grid-column-gap: 1rem;
-  width: 100%;
+  width: ${defaultTheme.sizes.full};
   padding-bottom: 16px;
   border-bottom: 1px solid ${defaultTheme.colors.grey};
 `
