@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../Button/Button'
+import Button from '../ui-kit/Button/Button'
 import {
   ModalBody,
   ModalContainer,
@@ -13,9 +13,13 @@ import {
   StyledModal,
 } from './Modal.styles'
 
-import { BackgroundOrange, BackgroundRed, BackgroundYellow } from '../IconWrapper/IconWrapper.style'
-import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../../assets/icons'
-import Dropdown from '../Dropdown/Dropdown'
+import {
+  BackgroundOrange,
+  BackgroundRed,
+  BackgroundYellow,
+} from '../ui-kit/IconWrapper/IconWrapper.style'
+import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../assets/icons'
+import Dropdown from '../ui-kit/Dropdown/Dropdown'
 
 const Modal = ({ isOpen = false, onClose, item }) => (
   <StyledModal style={{ overlay: OverlayStyles }} isOpen={isOpen}>

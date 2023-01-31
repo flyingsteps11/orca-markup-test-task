@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { defaultTheme } from '../../../styles/theme'
-import { BorderOrange, BorderRed, BorderYellow } from '../IconWrapper/IconWrapper.style'
-import { customScrollbar } from '../mixins/scrollbar'
+import { defaultTheme } from '../../styles/theme'
+import { BorderOrange, BorderRed, BorderYellow } from '../ui-kit/IconWrapper/IconWrapper.style'
+import { customScrollbar } from '../ui-kit/mixins/scrollbar'
 
 export const StyledTable = styled.table`
   width: ${defaultTheme.sizes.full};

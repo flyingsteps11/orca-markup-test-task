@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { defaultTheme } from '../../../styles/theme'
-import { Wrapper } from '../Button/Button.styles'
-import { Link, SourceLinkWrapper } from '../SourceLink/SourceLink.styles'
-import { Container } from '../CopyIp/Copyip.styles'
-import { media } from '../mixins/media'
+import { defaultTheme } from '../../styles/theme'
+import { Wrapper } from '../ui-kit/Button/Button.styles'
+import { Link, SourceLinkWrapper } from '../ui-kit/SourceLink/SourceLink.styles'
+import { Container } from '../ui-kit/CopyIp/Copyip.styles'
+import { media } from '../ui-kit/mixins/media'
 
 export const CardBlock = styled.div`
   background: ${defaultTheme.colors.white};

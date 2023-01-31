@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { media } from '../mixins/media'
-import { defaultTheme } from '../../../styles/theme'
+import { media } from '../ui-kit/mixins/media'
+import { defaultTheme } from '../../styles/theme'
 
 export const GridContainer = styled.div`
   display: grid;

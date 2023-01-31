@@ -1,8 +1,8 @@
 import ReactModal from 'react-modal'
-import styled, { css } from 'styled-components'
-import { defaultTheme } from '../../../styles/theme'
-import { IconClose } from '../../../assets/icons'
-import { Wrapper } from '../Button/Button.styles'
+import styled from 'styled-components'
+import { defaultTheme } from '../../styles/theme'
+import { IconClose } from '../../assets/icons'
+import { Wrapper } from '../ui-kit/Button/Button.styles'
 
 export const OverlayStyles = {
   background: defaultTheme.colors.bgModal,

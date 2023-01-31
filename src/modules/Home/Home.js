@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Page } from '../../components/Page/Page.styles'
-import Table from '../../components/ui-kit/Table/Table'
+import { Page } from '../../components/ui-kit/Page/Page.styles'
+import Table from '../../components/Table/Table'
 import Toolbar from '../../components/Toobar/Toolbar'
 import { data } from './data'
-import Grid from '../../components/ui-kit/Grid/Grid'
+import Grid from '../../components/Grid/Grid'
 import { TableColumns } from './columns'
 
 const Home = () => {

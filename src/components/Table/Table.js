@@ -17,8 +17,8 @@ import {
   ExpandedControlWrapper,
   ExpandedWrapper,
 } from './Table.styles'
-import Button from '../Button/Button'
-import Dropdown from '../Dropdown/Dropdown'
+import Button from '../ui-kit/Button/Button'
+import Dropdown from '../ui-kit/Dropdown/Dropdown'
 
 function Table({ columns, data }) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, visibleColumns } =

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { defaultTheme } from '../../styles/theme'
-import { media } from '../ui-kit/mixins/media'
+import { defaultTheme } from '../../../styles/theme'
+import { media } from '../mixins/media'
 
 export const Page = styled.div`
   max-width: 1256px;

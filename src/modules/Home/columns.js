@@ -7,7 +7,7 @@ import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../asse
 import CopyIp from '../../components/ui-kit/CopyIp/Copyip'
 import SourceLink from '../../components/ui-kit/SourceLink/SourceLink'
 import React from 'react'
-import { TableTextGrey } from '../../components/ui-kit/Table/Table.styles'
+import { TableTextGrey } from '../../components/Table/Table.styles'
 
 export const TableColumns = [
   {

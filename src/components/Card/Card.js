@@ -10,11 +10,11 @@ import {
   Text,
   TextGrey,
 } from './Card.styles'
-import { BorderGrey } from '../IconWrapper/IconWrapper.style'
-import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../../assets/icons'
-import CopyIp from '../CopyIp/Copyip'
-import Button from '../Button/Button'
-import SourceLink from '../SourceLink/SourceLink'
+import { BorderGrey } from '../ui-kit/IconWrapper/IconWrapper.style'
+import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../assets/icons'
+import CopyIp from '../ui-kit/CopyIp/Copyip'
+import Button from '../ui-kit/Button/Button'
+import SourceLink from '../ui-kit/SourceLink/SourceLink'
 import Modal from '../Modal/Modal'
 
 const Card = ({ item }) => {
