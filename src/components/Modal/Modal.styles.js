@@ -49,6 +49,7 @@ export const ModalFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 16px;
 
   ${Wrapper} {
