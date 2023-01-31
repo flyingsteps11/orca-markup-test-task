@@ -11,4 +11,7 @@ export const colors = {
   black: '#000000',
   bgModal: 'rgba(16, 17, 29, 0.3)',
   hoverBlue: '#3265b9',
+  scroll: '#B5B5BD',
+  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+  wizardWhite: '#E1EEFD',
 }

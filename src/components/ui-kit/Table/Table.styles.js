@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 import { defaultTheme } from '../../../styles/theme'
 import { BorderOrange, BorderRed, BorderYellow } from '../IconWrapper/IconWrapper.style'
+import { customScrollbar } from '../mixins/scrollbar'
 
 export const StyledTable = styled.table`
   width: ${defaultTheme.sizes.full};
   border-collapse: separate;
   border-spacing: 0 8px;
+`
+export const TableTextGrey = styled.span`
+  color: ${defaultTheme.colors.grey};
 `
 export const TableHeader = styled.thead``
 export const TableBody = styled.tbody``
@@ -14,6 +18,7 @@ export const TableHeaderTh = styled.th`
   color: ${defaultTheme.colors.darkGrey};
   font-weight: normal;
   text-align: left;
+
   ${({ colOption }) =>
     colOption
       ? `
@@ -21,6 +26,10 @@ export const TableHeaderTh = styled.th`
     width: ${colOption?.width}px;
     max-width: ${colOption?.maxWidth}px;`
       : ''}
+  &:not(:first-child) {
+    padding-left: 21px;
+    padding-right: 21px;
+  }
 `
 export const TableBodyTr = styled.tr`
   background: ${defaultTheme.colors.white};
@@ -42,6 +51,10 @@ export const TableBodyTr = styled.tr`
 
     ${BorderRed} {
       border: 1px solid ${defaultTheme.colors.white};
+    }
+
+    ${TableTextGrey} {
+      color: ${defaultTheme.colors.white};
     }
 
     svg {
@@ -88,4 +101,43 @@ export const TableBodyTd = styled.td`
 export const OverflowTable = styled.div`
   overflow-x: auto;
   width: ${defaultTheme.sizes.full};
+`
+export const ExpandedTr = styled.tr``
+export const ExpandedWrapper = styled.div`
+  height: 208px;
+  overflow: auto;
+  padding: 32px 23px 24px 32px;
+
+  ${customScrollbar}
+`
+
+export const ExpandedTd = styled.td`
+  border: 1px solid ${defaultTheme.colors.grey};
+  background: ${defaultTheme.colors.white};
+  border-radius: 4px;
+  position: relative;
+
+  &:after {
+    height: 100%;
+    content: '';
+    width: 1px;
+    background: ${defaultTheme.colors.grey};
+    position: absolute;
+    right: 8px;
+    top: 0;
+  }
+`
+export const ExpandedText = styled.p`
+  word-break: break-all;
+  margin-top: 8px;
+`
+export const ExpandedTitle = styled.span`
+  color: ${defaultTheme.colors.darkGrey};
+`
+export const ExpandedControlWrapper = styled.div`
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
 `

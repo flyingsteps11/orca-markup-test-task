@@ -1,9 +1,13 @@
-const Checkbox = ({ label, value, onChange }) => {
+import { CheckboxDisplay, CheckboxInput, CheckboxText, Label } from './Checkbox.styles'
+import { IconAgree } from '../../../assets/icons'
+
+const Checkbox = ({ checked = false, text, onChange }) => {
   return (
-    <label>
-      <input type="checkbox" checked={value} onChange={onChange} />
-      {label}
-    </label>
+    <Label>
+      <CheckboxInput {...{ checked, onChange }} />
+      <CheckboxDisplay>{checked ? <IconAgree /> : <></>}</CheckboxDisplay>
+      <CheckboxText>{text}</CheckboxText>
+    </Label>
   )
 }
 

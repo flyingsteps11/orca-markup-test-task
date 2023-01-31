@@ -21,6 +21,12 @@ const DefaultBtn = css`
   justify-content: center;
 `
 export const ToggleBtn = styled.div`
+  &:hover {
+    svg {
+      --icon-color: ${defaultTheme.colors.blue};
+    }
+  }
+
   ${DefaultBtn}
 `
 

@@ -1,26 +1,30 @@
-import React from 'react'
-import { ToolbarMain, ToolbarWrapper } from './Toolbar.styles'
+import React, { useState } from 'react'
+import { LinkLogo, ToolbarMain, ToolbarWrapper } from './Toolbar.styles'
 import { IconGroup, IconLogo, IconSort } from '../../assets/icons'
 import Checkbox from '../ui-kit/Checkbox/Checkbox'
-import Dropdown from '../ui-kit/Dropdown/Dropdown'
+import Select from '../ui-kit/Select/Select'
 import ToggleSwitch from '../ui-kit/ToggleSwitch/ToggleSwitch'
 
 const testOptions = ['Name', 'File name', 'IP Address v4', 'IP Address v6', 'Scan source']
 
 const Toolbar = ({ isTableVisible, setTableVisible }) => {
-  const [checked, setChecked] = React.useState()
-  const handleChange = () => {
-    setChecked(!checked)
+  const [isCheckboxActive, setCheckboxActive] = useState(false)
+  const checkboxToggle = () => {
+    setCheckboxActive(!isCheckboxActive)
   }
   return (
     <ToolbarMain>
-      <a href="#">
+      <LinkLogo href="#">
         <IconLogo />
-      </a>
+      </LinkLogo>
       <ToolbarWrapper>
-        <Checkbox label="I accept" value={checked} onChange={handleChange} />
-        <Dropdown options={testOptions} label="Group by" Icon={IconGroup} />
-        <Dropdown options={testOptions} label="Sort by" Icon={IconSort} />
+        <Checkbox
+          text="Show additional items"
+          onChange={checkboxToggle}
+          checked={isCheckboxActive}
+        />
+        <Select options={testOptions} label="Group by" Icon={IconGroup} />
+        <Select options={testOptions} label="Sort by" Icon={IconSort} />
         <ToggleSwitch isTableVisible={isTableVisible} setTableVisible={setTableVisible} />
       </ToolbarWrapper>
     </ToolbarMain>

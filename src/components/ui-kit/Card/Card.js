@@ -12,7 +12,7 @@ import {
 } from './Card.styles'
 import { BorderGrey } from '../IconWrapper/IconWrapper.style'
 import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../../assets/icons'
-import Copyip from '../CopyIp/Copyip'
+import CopyIp from '../CopyIp/Copyip'
 import Button from '../Button/Button'
 import SourceLink from '../SourceLink/SourceLink'
 import Modal from '../Modal/Modal'
@@ -78,11 +78,11 @@ const Card = ({ item }) => {
           <CardBlockWrapper>
             <CardBlockItem>
               <Label>IP Address v4:</Label>
-              <Copyip children={item.ipV4} />
+              <CopyIp children={item.ipV4} />
             </CardBlockItem>
             <CardBlockItem>
               <Label>IP Address v6:</Label>
-              <Copyip children={item.ipV6} />
+              <CopyIp children={item.ipV6} />
             </CardBlockItem>
             <CardBlockItem>
               <Label>Scan source:</Label>

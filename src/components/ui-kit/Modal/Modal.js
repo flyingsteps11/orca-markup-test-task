@@ -15,6 +15,7 @@ import {
 
 import { BackgroundOrange, BackgroundRed, BackgroundYellow } from '../IconWrapper/IconWrapper.style'
 import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../../assets/icons'
+import Dropdown from '../Dropdown/Dropdown'
 
 const Modal = ({ isOpen = false, onClose, item }) => (
   <StyledModal style={{ overlay: OverlayStyles }} isOpen={isOpen}>
@@ -44,6 +45,7 @@ const Modal = ({ isOpen = false, onClose, item }) => (
       </ModalBody>
       <ModalFooter>
         <Button primary>Download</Button>
+        <Dropdown />
         <Button onClick={onClose}>Cancel</Button>
       </ModalFooter>
     </ModalContainer>

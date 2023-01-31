@@ -10,7 +10,15 @@ import {
   TableHeaderTh,
   TableHeaderTr,
   OverflowTable,
+  ExpandedTr,
+  ExpandedTd,
+  ExpandedTitle,
+  ExpandedText,
+  ExpandedControlWrapper,
+  ExpandedWrapper,
 } from './Table.styles'
+import Button from '../Button/Button'
+import Dropdown from '../Dropdown/Dropdown'
 
 function Table({ columns, data }) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, visibleColumns } =
@@ -50,16 +58,20 @@ function Table({ columns, data }) {
                     )
                   })}
                 </TableBodyTr>
-                {/*
-                    If the row is in an expanded state, render a row with a
-                    column that fills the entire length of the table.
-                  */}
+
                 {row.isExpanded ? (
-                  <TableBodyTr>
-                    <TableBodyTd colSpan={visibleColumns.length}>
-                      <span>{row.original.additionalInfo}</span>
-                    </TableBodyTd>
-                  </TableBodyTr>
+                  <ExpandedTr>
+                    <ExpandedTd colSpan={visibleColumns.length}>
+                      <ExpandedWrapper>
+                        <ExpandedTitle>Additional info</ExpandedTitle>
+                        <ExpandedText>{row.original.additionalInfo}</ExpandedText>
+                        <ExpandedControlWrapper>
+                          <Button primary>Download</Button>
+                          <Dropdown />
+                        </ExpandedControlWrapper>
+                      </ExpandedWrapper>
+                    </ExpandedTd>
+                  </ExpandedTr>
                 ) : null}
               </React.Fragment>
             )

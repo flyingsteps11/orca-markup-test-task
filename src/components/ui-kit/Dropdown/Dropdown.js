@@ -1,41 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
-  DropDownContainer,
-  DropDownHeader,
-  DropDownList,
-  DropDownListContainer,
+  DropdownContainer,
+  DropdownHeader,
+  DropdownList,
   ListItem,
-} from 'components/ui-kit/Dropdown/Dropdown.styles'
-import { IconArrow } from '../../../assets/icons'
+  StyledDropdown,
+  StyledIconArrow,
+} from './Dropdown.styles'
+import { IconDownload } from '../../../assets/icons'
 
-const Dropdown = ({ Icon, options, label }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [selectedOption, setSelectedOption] = useState(null)
-  const toggling = () => setIsOpen(!isOpen)
-  const onOptionClicked = value => () => {
-    setSelectedOption(value)
-    setIsOpen(false)
+const Dropdown = () => {
+  const container = useRef()
+  const [dropdownState, setDropdownState] = useState({ open: false })
+
+  const handleDropdownClick = () => setDropdownState({ open: !dropdownState.open })
+
+  const handleClickOutside = e => {
+    if (container.current && !container.current.contains(e.target)) {
+      setDropdownState({ open: false })
+    }
   }
 
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
   return (
-    <DropDownContainer>
-      <DropDownHeader onClick={toggling}>
-        <Icon />
-        <span>{selectedOption || label}</span>
-        <IconArrow />
-      </DropDownHeader>
-      {isOpen && (
-        <DropDownListContainer>
-          <DropDownList>
-            {options.map((option, index) => (
-              <ListItem onClick={onOptionClicked(option)} key={index}>
-                {option}
-              </ListItem>
-            ))}
-          </DropDownList>
-        </DropDownListContainer>
+    <StyledDropdown ref={container}>
+      <DropdownHeader onClick={handleDropdownClick}>
+        <IconDownload />
+        <span>Download as</span>
+        <StyledIconArrow rotate={dropdownState.open} />
+      </DropdownHeader>
+      {dropdownState.open && (
+        <DropdownContainer>
+          <DropdownList>
+            <ListItem>Document</ListItem>
+            <ListItem>Image</ListItem>
+            <ListItem>PDF</ListItem>
+            <ListItem>HTML</ListItem>
+          </DropdownList>
+        </DropdownContainer>
       )}
-    </DropDownContainer>
+    </StyledDropdown>
   )
 }
+
 export default Dropdown

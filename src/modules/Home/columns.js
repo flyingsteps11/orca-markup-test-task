@@ -4,18 +4,19 @@ import {
   BorderYellow,
 } from '../../components/ui-kit/IconWrapper/IconWrapper.style'
 import { IconWarningOrange, IconWarningRed, IconWarningYellow } from '../../assets/icons'
-import Copyip from '../../components/ui-kit/CopyIp/Copyip'
+import CopyIp from '../../components/ui-kit/CopyIp/Copyip'
 import SourceLink from '../../components/ui-kit/SourceLink/SourceLink'
 import React from 'react'
+import { TableTextGrey } from '../../components/ui-kit/Table/Table.styles'
 
 export const TableColumns = [
   {
     Header: '',
     accessor: 'icon',
     colOption: {
-      minWidth: 50,
-      maxWidth: 50,
-      width: 50,
+      minWidth: 76,
+      maxWidth: 76,
+      width: 76,
     },
     id: 'expander',
     Cell: ({ value }) => (
@@ -57,7 +58,7 @@ export const TableColumns = [
     },
     Cell: ({ value, row }) => (
       <span>
-        {value} ({row.original.fileSize})
+        {value} <TableTextGrey>({row.original.fileSize})</TableTextGrey>
       </span>
     ),
   },
@@ -65,11 +66,11 @@ export const TableColumns = [
     Header: 'IP Address v4',
     accessor: 'ipV4',
     colOption: {
-      minWidth: 208,
-      maxWidth: 208,
-      width: 208,
+      minWidth: 217,
+      maxWidth: 217,
+      width: 217,
     },
-    Cell: ({ row }) => <Copyip children={row.original.ipV4} />,
+    Cell: ({ row }) => <CopyIp children={row.original.ipV4} />,
   },
   {
     Header: 'IP Address v6',
@@ -79,7 +80,7 @@ export const TableColumns = [
       maxWidth: 240,
       width: 240,
     },
-    Cell: ({ row }) => <Copyip children={row.original.ipV6} />,
+    Cell: ({ row }) => <CopyIp children={row.original.ipV6} />,
   },
   {
     Header: 'Scan source',
